@@ -4,7 +4,7 @@ import api from '../../services/api';
 import { format } from 'date-fns';
 import { ptBR } from 'date-fns/locale';
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, PieChart, Pie, Cell } from 'recharts';
-
+ 
 const AdminDashboard = () => {
   const [stats, setStats] = useState({
     totalUsers: 0,
@@ -22,7 +22,12 @@ useEffect(() => {
   const fetchDashboardData = async () => {
     try {
       const statsResponse = await api.get('/api/admin/dashboard/stats');
-      setStats(statsResponse.data);
+      const data = statsResponse.data;
+      const computedPending = data.totalCheckpoints - data.completedToday;
+      setStats({
+        ...data,
+        pendingToday: computedPending,
+      });
 
       const checkinsResponse = await api.get('/api/admin/dashboard/recent-checkins');
       setRecentCheckins(checkinsResponse.data);
@@ -31,8 +36,8 @@ useEffect(() => {
       const chartResponse = await api.get('/api/admin/dashboard/chart-data');
       setChartData(chartResponse.data.hourlyCheckins);
       setPieData([
-        { name: 'Verificados', value: statsResponse.data.completedToday, color: '#22C55E' },
-        { name: 'Pendentes', value: statsResponse.data.pendingToday, color: '#F97316' }
+        { name: 'Verificados', value: data.completedToday, color: '#22C55E' },
+        { name: 'Pendentes',   value: computedPending,    color: '#F97316' }
       ]);
     } catch (err) {
       console.error('Error fetching dashboard data:', err);

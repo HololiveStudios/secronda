@@ -19,9 +19,6 @@ const AuthLayout = () => {
         <div className="flex justify-center">
           <Shield className="h-12 w-12 text-primary-800" />
         </div>
-        <h2 className="mt-6 text-center text-3xl font-bold tracking-tight text-gray-900">
-          Sistema de Controle de Rondas
-        </h2>
       </div>
       
       <div className="mt-8 sm:mx-auto sm:w-full sm:max-w-md">

@@ -28,10 +28,6 @@ const LoginPage = () => {
 
   return (
     <div>
-      <div className="mb-6 flex justify-center">
-        <Shield className="h-12 w-12 text-primary-600" />
-      </div>
-      
       <form className="space-y-6" onSubmit={handleSubmit}>
         {error && (
           <div className="bg-error-50 border border-error-200 text-error-700 px-4 py-3 rounded relative" role="alert">
@@ -93,19 +89,6 @@ const LoginPage = () => {
           </button>
         </div>
       </form>
-
-      <div className="mt-6">
-        <div className="relative">
-          <div className="absolute inset-0 flex items-center">
-            <div className="w-full border-t border-gray-300" />
-          </div>
-          <div className="relative flex justify-center text-sm">
-            <span className="px-2 bg-white text-gray-500">
-              Sistema de Controle de Rondas
-            </span>
-          </div>
-        </div>
-      </div>
     </div>
   );
 };

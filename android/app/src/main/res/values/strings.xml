@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">rondas</string>
+    <string name="title_activity_main">rondas</string>
+    <string name="package_name">com.fallen.rondas</string>
+    <string name="custom_url_scheme">com.fallen.rondas</string>
+</resources>

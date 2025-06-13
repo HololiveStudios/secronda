@@ -42,6 +42,10 @@ const GuardDashboard: React.FC = () => {
       const response = await api.get('/api/guard/checkpoints');
       setCheckpoints(response.data);
       
+      const all = response.data as Checkpoint[];
+      const pendingOnly = all.filter(cp => cp.status === 'pending');
+      setCheckpoints(pendingOnly);
+
       // Also get recent checkins
       const recentResponse = await api.get('/api/guard/checkins/recent');
       setRecentCheckins(recentResponse.data);

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import QrScanner from 'react-qr-scanner';
 import { QrCode, Check, X, MapPin, Info, AlertCircle, RefreshCw } from 'lucide-react';
 import api from '../../services/api';
@@ -31,7 +31,7 @@ const QrScannerPage = () => {
   const [permissionState, setPermissionState] = useState('unknown'); // 'granted', 'denied', 'prompt', 'unknown'
 
   // Raio permitido para bater o ponto (em metros)
-  const ALLOWED_RADIUS = 100; // Ajuste conforme necessário
+  const ALLOWED_RADIUS = 10; // Ajuste conforme necessário
   const MAX_ACCURACY_OFFSET = 500; // Máximo offset por imprecisão GPS
 
   const requestLocationPermission = async () => {

@@ -13,7 +13,7 @@ const NotFoundPage = () => {
     } else if (user?.role === 'guard') {
       navigate('/guard');
     } else {
-      navigate('/login');
+      navigate('/');
     }
   };
 
